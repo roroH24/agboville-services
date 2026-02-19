@@ -1,0 +1,15 @@
+﻿{
+  "name": "agboville-services",
+  "version": "1.0.0",
+  "description": "Plateforme simple: restaurant, location de maisons, location d'objets",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "nodemailer": "^6.10.1"
+  }
+}

@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="api-base-url" content="http://localhost:3000">
+  <title>Agboville Services</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>Plateforme de services - Agboville</h1>
+    <p>Le client voit les offres, puis choisit avant d'envoyer sa demande.</p>
+  </header>
+
+  <main class="container">
+    <section class="card" id="restaurant">
+      <h2>Commande de nourriture</h2>
+      <p>Le client choisit son plat, puis envoie la commande au secretaire.</p>
+
+      <div class="catalog-grid" aria-label="Catalogue plats">
+        <article class="catalog-item">
+          <h3>Poulet braise + alloco</h3>
+          <p>Prix: 3 500 FCFA</p>
+        </article>
+        <article class="catalog-item">
+          <h3>Riz gras + viande</h3>
+          <p>Prix: 2 500 FCFA</p>
+        </article>
+        <article class="catalog-item">
+          <h3>Poisson frit + attieke</h3>
+          <p>Prix: 4 000 FCFA</p>
+        </article>
+      </div>
+
+      <form id="restaurantForm" data-request-type="Commande_Restaurant">
+        <input type="hidden" name="Type_Dossier" value="Commande_Restaurant">
+        <input type="hidden" name="Action_Secretaire" value="Preparer_et_livrer_la_commande">
+
+        <label for="r_nom">Nom complet (optionnel)</label>
+        <input id="r_nom" name="Nom" type="text">
+
+        <label for="r_tel">Telephone</label>
+        <input id="r_tel" name="Telephone" type="tel" required>
+
+        <label for="r_adresse">Adresse de livraison</label>
+        <input id="r_adresse" name="Adresse" type="text" required>
+
+        <fieldset>
+          <legend>Choix des plats (cocher au moins un)</legend>
+          <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Poulet braise + alloco - 3500 FCFA"> Poulet braise + alloco - 3 500 FCFA</label>
+          <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Riz gras + viande - 2500 FCFA"> Riz gras + viande - 2 500 FCFA</label>
+          <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Poisson frit + attieke - 4000 FCFA"> Poisson frit + attieke - 4 000 FCFA</label>
+        </fieldset>
+
+        <label for="r_qte_poulet">Quantite Poulet braise + alloco</label>
+        <input id="r_qte_poulet" name="Quantite_Poulet_Braise_Alloco" type="number" min="0" value="0">
+
+        <label for="r_qte_riz">Quantite Riz gras + viande</label>
+        <input id="r_qte_riz" name="Quantite_Riz_Gras_Viande" type="number" min="0" value="0">
+
+        <label for="r_qte_poisson">Quantite Poisson frit + attieke</label>
+        <input id="r_qte_poisson" name="Quantite_Poisson_Frit_Attieke" type="number" min="0" value="0">
+
+        <label for="r_note">Note (optionnel)</label>
+        <textarea id="r_note" name="Note" rows="3" placeholder="Sans piment, boisson, etc."></textarea>
+
+        <input id="r_localisation" name="Localisation_Client" type="hidden">
+
+        <div class="actions">
+          <button type="button" class="btn-secondary" data-loc-target="r_localisation">Ajouter ma localisation</button>
+          <button type="submit" class="btn-primary">Envoyer la commande</button>
+        </div>
+        <p id="restaurantMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card" id="maisons">
+      <h2>Location de maisons</h2>
+      <p>Le client choisit une maison, puis envoie la demande de visite au secretaire.</p>
+
+      <div class="catalog-grid" aria-label="Catalogue maisons">
+        <article class="catalog-item">
+          <h3>Maison A - Quartier Commerce</h3>
+          <p>2 chambres, salon, cour</p>
+          <p>Loyer: 80 000 FCFA / mois</p>
+        </article>
+        <article class="catalog-item">
+          <h3>Maison B - Quartier Plateau</h3>
+          <p>3 chambres, salon, garage</p>
+          <p>Loyer: 120 000 FCFA / mois</p>
+        </article>
+        <article class="catalog-item">
+          <h3>Maison C - Quartier Sodefor</h3>
+          <p>1 chambre, salon</p>
+          <p>Loyer: 55 000 FCFA / mois</p>
+        </article>
+      </div>
+
+      <form id="maisonForm" data-request-type="Location_Maison">
+        <input type="hidden" name="Type_Dossier" value="Location_Maison">
+        <input type="hidden" name="Action_Secretaire" value="Confirmer_la_visite_avec_le_client">
+
+        <label for="m_nom">Nom complet (optionnel)</label>
+        <input id="m_nom" name="Nom" type="text">
+
+        <label for="m_tel">Telephone</label>
+        <input id="m_tel" name="Telephone" type="tel" required>
+
+        <fieldset>
+          <legend>Choix de la maison (obligatoire)</legend>
+          <label class="choice"><input type="radio" name="Maison_Choisie" value="Maison A - Quartier Commerce - 80000 FCFA" required> Maison A - Quartier Commerce (80 000 FCFA)</label>
+          <label class="choice"><input type="radio" name="Maison_Choisie" value="Maison B - Quartier Plateau - 120000 FCFA"> Maison B - Quartier Plateau (120 000 FCFA)</label>
+          <label class="choice"><input type="radio" name="Maison_Choisie" value="Maison C - Quartier Sodefor - 55000 FCFA"> Maison C - Quartier Sodefor (55 000 FCFA)</label>
+        </fieldset>
+
+        <label for="m_date">Date souhaitee pour la visite</label>
+        <input id="m_date" name="Date_Visite" type="date" required>
+
+        <label for="m_message">Message complementaire</label>
+        <textarea id="m_message" name="Details" rows="4"></textarea>
+
+        <button type="submit" class="btn-primary">Envoyer la demande de visite</button>
+        <p id="maisonMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card" id="objets">
+      <h2>Location d'objets</h2>
+      <p>Le client choisit les objets, puis envoie la demande de location au secretaire.</p>
+
+      <div class="catalog-grid" aria-label="Catalogue objets">
+        <article class="catalog-item">
+          <h3>Chaise plastique blanche</h3>
+          <p>Prix: 500 FCFA / chaise / jour</p>
+        </article>
+        <article class="catalog-item">
+          <h3>Table ronde</h3>
+          <p>Prix: 2 000 FCFA / table / jour</p>
+        </article>
+        <article class="catalog-item">
+          <h3>Tente de reception</h3>
+          <p>Prix: 25 000 FCFA / jour</p>
+        </article>
+      </div>
+
+      <form id="objetForm" data-request-type="Location_Objet">
+        <input type="hidden" name="Type_Dossier" value="Location_Objet">
+        <input type="hidden" name="Action_Secretaire" value="Verifier_stock_et_confirmer_la_location">
+
+        <label for="o_nom">Nom complet (optionnel)</label>
+        <input id="o_nom" name="Nom" type="text">
+
+        <label for="o_tel">Telephone</label>
+        <input id="o_tel" name="Telephone" type="tel" required>
+
+        <fieldset>
+          <legend>Objets a louer (cocher au moins un)</legend>
+          <label class="choice"><input type="checkbox" name="Objets" value="Chaise plastique blanche"> Chaises plastiques blanches</label>
+          <label class="choice"><input type="checkbox" name="Objets" value="Table ronde"> Tables rondes</label>
+          <label class="choice"><input type="checkbox" name="Objets" value="Tente de reception"> Tentes de reception</label>
+        </fieldset>
+
+        <label for="o_qte_chaises">Quantite chaises</label>
+        <input id="o_qte_chaises" name="Quantite_Chaises" type="number" min="0" value="0">
+
+        <label for="o_qte_tables">Quantite tables</label>
+        <input id="o_qte_tables" name="Quantite_Tables" type="number" min="0" value="0">
+
+        <label for="o_qte_tentes">Quantite tentes</label>
+        <input id="o_qte_tentes" name="Quantite_Tentes" type="number" min="0" value="0">
+
+        <label for="o_date_debut">Date de debut</label>
+        <input id="o_date_debut" name="Date_Debut" type="date" required>
+
+        <label for="o_date_fin">Date de fin</label>
+        <input id="o_date_fin" name="Date_Fin" type="date" required>
+
+        <label for="o_lieu">Lieu de livraison</label>
+        <input id="o_lieu" name="Lieu" type="text" required>
+
+        <button type="submit" class="btn-primary">Envoyer la demande de location</button>
+        <p id="objetMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Toutes les demandes sont envoyees au secretaire pour traitement et suivi.</p>
+    <p>Utilisez le site via http://localhost:3000 pendant le developpement.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+﻿* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+.hero {
+  background: #0f766e;
+  color: #ffffff;
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+}
+
+.hero p {
+  margin: 0;
+}
+
+.container {
+  width: min(960px, 92%);
+  margin: 24px auto;
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #0f172a;
+}
+
+.card p {
+  margin-top: 0;
+  color: #475569;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.catalog-item {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px;
+  background: #f8fafc;
+}
+
+.catalog-item h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.catalog-item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: 600;
+}
+
+fieldset {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+legend {
+  padding: 0 6px;
+  font-weight: 700;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.footer {
+  text-align: center;
+  padding: 16px;
+  color: #475569;
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+}
+.form-message {
+  margin: 4px 0 0;
+  min-height: 20px;
+  font-size: 0.95rem;
+}
+
+.form-message.success {
+  color: #065f46;
+}
+
+.form-message.error {
+  color: #b91c1c;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
