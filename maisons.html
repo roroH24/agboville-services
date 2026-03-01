@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="api-base-url" content="">
+  <title>Maisons - Agboville Services</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="topbar-brand">Agboville Services</a>
+    <nav class="topbar-nav">
+      <a href="nourriture.html">Nourriture</a>
+      <a class="active" href="maisons.html">Maisons</a>
+      <a href="objets.html">Objets</a>
+    </nav>
+  </header>
+
+  <main class="container page-container">
+    <section class="card card-house">
+      <h2>Location de maisons</h2>
+      <p>Choisissez une maison, planifiez une visite, puis choisissez le mode de règlement.</p>
+
+      <div class="catalog-grid" aria-label="Catalogue maisons">
+        <article class="catalog-item"><h3>Maison A - Quartier Commerce</h3><p>2 chambres, salon, cour</p><p>Loyer: 80 000 FCFA / mois</p></article>
+        <article class="catalog-item"><h3>Maison B - Quartier Plateau</h3><p>3 chambres, salon, garage</p><p>Loyer: 120 000 FCFA / mois</p></article>
+        <article class="catalog-item"><h3>Maison C - Quartier Sodefor</h3><p>1 chambre, salon</p><p>Loyer: 55 000 FCFA / mois</p></article>
+      </div>
+
+      <form data-request-type="Location_Maison">
+        <input type="hidden" name="Type_Dossier" value="Location_Maison">
+        <input type="hidden" name="Action_Secretaire" value="Confirmer_la_visite_avec_le_client">
+
+        <label for="m_nom">Nom complet (optionnel)</label>
+        <input id="m_nom" name="Nom" type="text">
+
+        <label for="m_tel">Telephone</label>
+        <input id="m_tel" name="Telephone" type="tel" required>
+
+        <fieldset>
+          <legend>Choix de la maison (obligatoire)</legend>
+          <label class="choice"><input type="radio" name="Maison_Choisie" value="Maison A - Quartier Commerce - 80000 FCFA" required> Maison A - Quartier Commerce (80 000 FCFA)</label>
+          <label class="choice"><input type="radio" name="Maison_Choisie" value="Maison B - Quartier Plateau - 120000 FCFA"> Maison B - Quartier Plateau (120 000 FCFA)</label>
+          <label class="choice"><input type="radio" name="Maison_Choisie" value="Maison C - Quartier Sodefor - 55000 FCFA"> Maison C - Quartier Sodefor (55 000 FCFA)</label>
+        </fieldset>
+
+        <label for="m_date">Date souhaitée pour la visite</label>
+        <input id="m_date" name="Date_Visite" type="date" required>
+
+        <fieldset>
+          <legend>Mode de règlement (obligatoire)</legend>
+          <label class="choice"><input type="radio" name="Mode_Reglement" value="En_ligne" required checked> Payer en ligne maintenant</label>
+          <label class="choice"><input type="radio" name="Mode_Reglement" value="A_la_reception"> Payer au moment de la visite (temps réel)</label>
+        </fieldset>
+
+        <div class="payment-online-fields is-hidden" data-payment-fields>
+          <fieldset>
+            <legend>Réseau de paiement en ligne</legend>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="MTN Money" required> MTN Money</label>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="Moov Money"> Moov Money</label>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="Wave"> Wave</label>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="Orange Money"> Orange Money</label>
+          </fieldset>
+
+          <label for="m_paiement_numero">Numero de paiement</label>
+          <input id="m_paiement_numero" name="Paiement_Numero" type="tel" required>
+
+          <label for="m_ref">Référence transaction (optionnel)</label>
+          <input id="m_ref" name="Paiement_Reference" type="text">
+
+          <label for="m_montant">Montant à payer (FCFA)</label>
+          <input id="m_montant" name="Montant_Total" type="number" min="0" step="100" required>
+        </div>
+
+        <label for="m_message">Message complémentaire</label>
+        <textarea id="m_message" name="Details" rows="4"></textarea>
+
+        <button type="submit" class="btn-primary">Envoyer la demande de visite</button>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/2250500338062?text=Bonjour%20Agboville%20Services,%20je%20souhaite%20faire%20une%20plainte." target="_blank" rel="noopener noreferrer" aria-label="Assistance WhatsApp">WhatsApp</a>
+
+  <footer class="footer"><p>Besoin d'aide ? Assistance WhatsApp disponible.</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

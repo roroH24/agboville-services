@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="api-base-url" content="">
+  <title>Objets - Agboville Services</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="topbar-brand">Agboville Services</a>
+    <nav class="topbar-nav">
+      <a href="nourriture.html">Nourriture</a>
+      <a href="maisons.html">Maisons</a>
+      <a class="active" href="objets.html">Objets</a>
+    </nav>
+  </header>
+
+  <main class="container page-container">
+    <section class="card card-objects">
+      <h2>Location d'objets</h2>
+      <p>Sélectionnez les objets, ajoutez les quantités, puis choisissez le mode de règlement.</p>
+
+      <div class="catalog-grid" aria-label="Catalogue objets">
+        <article class="catalog-item"><h3>Chaise plastique blanche</h3><p>Prix: 500 FCFA / chaise / jour</p></article>
+        <article class="catalog-item"><h3>Table ronde</h3><p>Prix: 2 000 FCFA / table / jour</p></article>
+        <article class="catalog-item"><h3>Tente de réception</h3><p>Prix: 25 000 FCFA / jour</p></article>
+        <article class="catalog-item"><h3>Nappe blanche</h3><p>Prix: 300 FCFA / nappe / jour</p></article>
+        <article class="catalog-item"><h3>Housse de chaise</h3><p>Prix: 250 FCFA / housse / jour</p></article>
+        <article class="catalog-item"><h3>Glaciere grand format</h3><p>Prix: 4 000 FCFA / jour</p></article>
+        <article class="catalog-item"><h3>Sonorisation complete</h3><p>Prix: 45 000 FCFA / jour</p></article>
+      </div>
+
+      <form data-request-type="Location_Objet">
+        <input type="hidden" name="Type_Dossier" value="Location_Objet">
+        <input type="hidden" name="Action_Secretaire" value="Verifier_stock_et_confirmer_la_location">
+
+        <label for="o_nom">Nom complet (optionnel)</label>
+        <input id="o_nom" name="Nom" type="text">
+
+        <label for="o_tel">Telephone</label>
+        <input id="o_tel" name="Telephone" type="tel" required>
+
+        <section class="food-picker" aria-label="Selection rapide des objets">
+          <label for="object_search">Rechercher un objet</label>
+          <input id="object_search" type="text" placeholder="Ex: chaise, tente, sonorisation">
+
+          <details class="food-category object-category" open>
+            <summary>Mobilier</summary>
+            <div class="quick-dish-grid">
+              <article class="quick-dish quick-object" data-object-name="Chaise plastique blanche">
+                <h4>Chaise plastique blanche</h4>
+                <p>500 FCFA / jour</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-object-qty-action="decrease" data-object-qty-field="Quantite_Chaises">-</button>
+                  <strong data-object-qty-display="Quantite_Chaises">0</strong>
+                  <button type="button" class="btn-primary" data-object-qty-action="increase" data-object-qty-field="Quantite_Chaises">+</button>
+                </div>
+              </article>
+
+              <article class="quick-dish quick-object" data-object-name="Table ronde">
+                <h4>Table ronde</h4>
+                <p>2 000 FCFA / jour</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-object-qty-action="decrease" data-object-qty-field="Quantite_Tables">-</button>
+                  <strong data-object-qty-display="Quantite_Tables">0</strong>
+                  <button type="button" class="btn-primary" data-object-qty-action="increase" data-object-qty-field="Quantite_Tables">+</button>
+                </div>
+              </article>
+
+              <article class="quick-dish quick-object" data-object-name="Nappe blanche">
+                <h4>Nappe blanche</h4>
+                <p>300 FCFA / jour</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-object-qty-action="decrease" data-object-qty-field="Quantite_Nappes">-</button>
+                  <strong data-object-qty-display="Quantite_Nappes">0</strong>
+                  <button type="button" class="btn-primary" data-object-qty-action="increase" data-object-qty-field="Quantite_Nappes">+</button>
+                </div>
+              </article>
+
+              <article class="quick-dish quick-object" data-object-name="Housse de chaise">
+                <h4>Housse de chaise</h4>
+                <p>250 FCFA / jour</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-object-qty-action="decrease" data-object-qty-field="Quantite_Housses">-</button>
+                  <strong data-object-qty-display="Quantite_Housses">0</strong>
+                  <button type="button" class="btn-primary" data-object-qty-action="increase" data-object-qty-field="Quantite_Housses">+</button>
+                </div>
+              </article>
+            </div>
+          </details>
+
+          <details class="food-category object-category" open>
+            <summary>Reception et logistique</summary>
+            <div class="quick-dish-grid">
+              <article class="quick-dish quick-object" data-object-name="Tente de reception">
+                <h4>Tente de reception</h4>
+                <p>25 000 FCFA / jour</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-object-qty-action="decrease" data-object-qty-field="Quantite_Tentes">-</button>
+                  <strong data-object-qty-display="Quantite_Tentes">0</strong>
+                  <button type="button" class="btn-primary" data-object-qty-action="increase" data-object-qty-field="Quantite_Tentes">+</button>
+                </div>
+              </article>
+
+              <article class="quick-dish quick-object" data-object-name="Glaciere grand format">
+                <h4>Glaciere grand format</h4>
+                <p>4 000 FCFA / jour</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-object-qty-action="decrease" data-object-qty-field="Quantite_Glacieres">-</button>
+                  <strong data-object-qty-display="Quantite_Glacieres">0</strong>
+                  <button type="button" class="btn-primary" data-object-qty-action="increase" data-object-qty-field="Quantite_Glacieres">+</button>
+                </div>
+              </article>
+            </div>
+          </details>
+
+          <details class="food-category object-category" open>
+            <summary>Sonorisation</summary>
+            <div class="quick-dish-grid">
+              <article class="quick-dish quick-object" data-object-name="Sonorisation complete">
+                <h4>Sonorisation complete</h4>
+                <p>45 000 FCFA / jour</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-object-qty-action="decrease" data-object-qty-field="Quantite_Sonorisation">-</button>
+                  <strong data-object-qty-display="Quantite_Sonorisation">0</strong>
+                  <button type="button" class="btn-primary" data-object-qty-action="increase" data-object-qty-field="Quantite_Sonorisation">+</button>
+                </div>
+              </article>
+            </div>
+          </details>
+
+          <p id="object_search_empty" class="search-empty is-hidden">Aucun objet trouvé avec ce mot-clé.</p>
+        </section>
+
+        <div class="object-hidden-fields">
+          <fieldset>
+            <legend>Champs techniques objets</legend>
+            <label class="choice"><input type="checkbox" name="Objets" value="Chaise plastique blanche"> Chaises plastiques blanches</label>
+            <label class="choice"><input type="checkbox" name="Objets" value="Table ronde"> Tables rondes</label>
+            <label class="choice"><input type="checkbox" name="Objets" value="Tente de reception"> Tentes de réception</label>
+            <label class="choice"><input type="checkbox" name="Objets" value="Nappe blanche"> Nappes blanches</label>
+            <label class="choice"><input type="checkbox" name="Objets" value="Housse de chaise"> Housses de chaise</label>
+            <label class="choice"><input type="checkbox" name="Objets" value="Glaciere grand format"> Glacieres grand format</label>
+            <label class="choice"><input type="checkbox" name="Objets" value="Sonorisation complete"> Sonorisation complete</label>
+          </fieldset>
+
+          <input id="o_qte_chaises" name="Quantite_Chaises" type="number" min="0" value="0">
+          <input id="o_qte_tables" name="Quantite_Tables" type="number" min="0" value="0">
+          <input id="o_qte_tentes" name="Quantite_Tentes" type="number" min="0" value="0">
+          <input id="o_qte_nappes" name="Quantite_Nappes" type="number" min="0" value="0">
+          <input id="o_qte_housses" name="Quantite_Housses" type="number" min="0" value="0">
+          <input id="o_qte_glacieres" name="Quantite_Glacieres" type="number" min="0" value="0">
+          <input id="o_qte_sono" name="Quantite_Sonorisation" type="number" min="0" value="0">
+        </div>
+
+        <div class="price-summary" id="o_price_summary">
+          <h3>Calcul du tarif</h3>
+          <p id="o_price_details">Aucun article sélectionné</p>
+          <p class="price-total">Montant estimé: <strong id="o_total_price">0</strong> FCFA</p>
+        </div>
+
+        <label for="o_date_debut">Date de début</label>
+        <input id="o_date_debut" name="Date_Debut" type="date" required>
+
+        <label for="o_date_fin">Date de fin</label>
+        <input id="o_date_fin" name="Date_Fin" type="date" required>
+
+        <label for="o_lieu">Lieu de livraison</label>
+        <input id="o_lieu" name="Lieu" type="text" required>
+
+        <fieldset>
+          <legend>Mode de règlement (obligatoire)</legend>
+          <label class="choice"><input type="radio" name="Mode_Reglement" value="En_ligne" required checked> Payer en ligne maintenant</label>
+          <label class="choice"><input type="radio" name="Mode_Reglement" value="A_la_reception"> Payer à la réception du colis (temps réel)</label>
+        </fieldset>
+
+        <div class="payment-online-fields is-hidden" data-payment-fields>
+          <fieldset>
+            <legend>Réseau de paiement en ligne</legend>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="MTN Money" required> MTN Money</label>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="Moov Money"> Moov Money</label>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="Wave"> Wave</label>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="Orange Money"> Orange Money</label>
+          </fieldset>
+
+          <label for="o_paiement_numero">Numero de paiement</label>
+          <input id="o_paiement_numero" name="Paiement_Numero" type="tel" required>
+
+          <label for="o_ref">Référence transaction (optionnel)</label>
+          <input id="o_ref" name="Paiement_Reference" type="text">
+
+          <label for="o_montant">Montant à payer (FCFA)</label>
+          <input id="o_montant" name="Montant_Total" type="number" min="0" step="100" required placeholder="Confirmez le montant estimé ci-dessus">
+        </div>
+
+        <button type="submit" class="btn-primary">Envoyer la demande de location</button>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/2250500338062?text=Bonjour%20Agboville%20Services,%20je%20souhaite%20faire%20une%20plainte." target="_blank" rel="noopener noreferrer" aria-label="Assistance WhatsApp">WhatsApp</a>
+
+  <footer class="footer"><p>Besoin d'aide ? Assistance WhatsApp disponible.</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

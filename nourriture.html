@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="api-base-url" content="">
+  <title>Nourriture - Agboville Services</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="topbar-brand">Agboville Services</a>
+    <nav class="topbar-nav">
+      <a class="active" href="nourriture.html">Nourriture</a>
+      <a href="maisons.html">Maisons</a>
+      <a href="objets.html">Objets</a>
+    </nav>
+  </header>
+
+  <main class="container page-container">
+    <section class="card card-food">
+      <h2>Commande de nourriture</h2>
+      <p>Choisissez vos plats, ajoutez les quantités, puis choisissez le mode de règlement.</p>
+
+      <h3>Grillades et poisson</h3>
+      <div class="catalog-grid" aria-label="Catalogue plats grillades et poisson">
+        <article class="catalog-item"><h3>Poulet braise + alloco</h3><p>Prix: 3 500 FCFA</p></article>
+        <article class="catalog-item"><h3>Poisson frit + attieke</h3><p>Prix: 4 000 FCFA</p></article>
+        <article class="catalog-item"><h3>Kedjenou de poulet + riz</h3><p>Prix: 4 500 FCFA</p></article>
+      </div>
+
+      <h3>Plats traditionnels</h3>
+      <div class="catalog-grid" aria-label="Catalogue plats traditionnels">
+        <article class="catalog-item"><h3>Riz gras + viande</h3><p>Prix: 2 500 FCFA</p></article>
+        <article class="catalog-item"><h3>Garba thon + attieke</h3><p>Prix: 2 000 FCFA</p></article>
+        <article class="catalog-item"><h3>Foutou sauce graine + boeuf</h3><p>Prix: 3 000 FCFA</p></article>
+      </div>
+
+      <h3>Pâtes</h3>
+      <div class="catalog-grid" aria-label="Catalogue plats pates">
+        <article class="catalog-item"><h3>Spaghetti crevettes</h3><p>Prix: 3 500 FCFA</p></article>
+      </div>
+
+      <form data-request-type="Commande_Restaurant">
+        <input type="hidden" name="Type_Dossier" value="Commande_Restaurant">
+        <input type="hidden" name="Action_Secretaire" value="Preparer_et_livrer_la_commande">
+
+        <label for="r_nom">Nom complet (optionnel)</label>
+        <input id="r_nom" name="Nom" type="text">
+
+        <label for="r_tel">Telephone</label>
+        <input id="r_tel" name="Telephone" type="tel" required>
+
+        <label for="r_adresse">Adresse de livraison</label>
+        <input id="r_adresse" name="Adresse" type="text" required>
+
+        <section class="food-picker" aria-label="Selection rapide des plats">
+          <label for="food_search">Rechercher un plat</label>
+          <input id="food_search" type="text" placeholder="Ex: garba, poisson, spaghetti">
+
+          <details class="food-category" data-category="Grillades et poisson" open>
+            <summary>Grillades et poisson</summary>
+            <div class="quick-dish-grid">
+              <article class="quick-dish" data-dish-name="Poulet braise + alloco">
+                <h4>Poulet braise + alloco</h4>
+                <p>3 500 FCFA</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-qty-action="decrease" data-qty-field="Quantite_Poulet_Braise_Alloco">-</button>
+                  <strong data-qty-display="Quantite_Poulet_Braise_Alloco">0</strong>
+                  <button type="button" class="btn-primary" data-qty-action="increase" data-qty-field="Quantite_Poulet_Braise_Alloco">+</button>
+                </div>
+              </article>
+
+              <article class="quick-dish" data-dish-name="Poisson frit + attieke">
+                <h4>Poisson frit + attieke</h4>
+                <p>4 000 FCFA</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-qty-action="decrease" data-qty-field="Quantite_Poisson_Frit_Attieke">-</button>
+                  <strong data-qty-display="Quantite_Poisson_Frit_Attieke">0</strong>
+                  <button type="button" class="btn-primary" data-qty-action="increase" data-qty-field="Quantite_Poisson_Frit_Attieke">+</button>
+                </div>
+              </article>
+
+              <article class="quick-dish" data-dish-name="Kedjenou de poulet + riz">
+                <h4>Kedjenou de poulet + riz</h4>
+                <p>4 500 FCFA</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-qty-action="decrease" data-qty-field="Quantite_Kedjenou_Poulet_Riz">-</button>
+                  <strong data-qty-display="Quantite_Kedjenou_Poulet_Riz">0</strong>
+                  <button type="button" class="btn-primary" data-qty-action="increase" data-qty-field="Quantite_Kedjenou_Poulet_Riz">+</button>
+                </div>
+              </article>
+            </div>
+          </details>
+
+          <details class="food-category" data-category="Plats traditionnels" open>
+            <summary>Plats traditionnels</summary>
+            <div class="quick-dish-grid">
+              <article class="quick-dish" data-dish-name="Riz gras + viande">
+                <h4>Riz gras + viande</h4>
+                <p>2 500 FCFA</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-qty-action="decrease" data-qty-field="Quantite_Riz_Gras_Viande">-</button>
+                  <strong data-qty-display="Quantite_Riz_Gras_Viande">0</strong>
+                  <button type="button" class="btn-primary" data-qty-action="increase" data-qty-field="Quantite_Riz_Gras_Viande">+</button>
+                </div>
+              </article>
+
+              <article class="quick-dish" data-dish-name="Garba thon + attieke">
+                <h4>Garba thon + attieke</h4>
+                <p>2 000 FCFA</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-qty-action="decrease" data-qty-field="Quantite_Garba_Thon_Attieke">-</button>
+                  <strong data-qty-display="Quantite_Garba_Thon_Attieke">0</strong>
+                  <button type="button" class="btn-primary" data-qty-action="increase" data-qty-field="Quantite_Garba_Thon_Attieke">+</button>
+                </div>
+              </article>
+
+              <article class="quick-dish" data-dish-name="Foutou sauce graine + boeuf">
+                <h4>Foutou sauce graine + boeuf</h4>
+                <p>3 000 FCFA</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-qty-action="decrease" data-qty-field="Quantite_Foutou_Sauce_Graine_Boeuf">-</button>
+                  <strong data-qty-display="Quantite_Foutou_Sauce_Graine_Boeuf">0</strong>
+                  <button type="button" class="btn-primary" data-qty-action="increase" data-qty-field="Quantite_Foutou_Sauce_Graine_Boeuf">+</button>
+                </div>
+              </article>
+            </div>
+          </details>
+
+          <details class="food-category" data-category="Pates" open>
+            <summary>Pates</summary>
+            <div class="quick-dish-grid">
+              <article class="quick-dish" data-dish-name="Spaghetti crevettes">
+                <h4>Spaghetti crevettes</h4>
+                <p>3 500 FCFA</p>
+                <div class="quick-stepper">
+                  <button type="button" class="btn-secondary" data-qty-action="decrease" data-qty-field="Quantite_Spaghetti_Crevettes">-</button>
+                  <strong data-qty-display="Quantite_Spaghetti_Crevettes">0</strong>
+                  <button type="button" class="btn-primary" data-qty-action="increase" data-qty-field="Quantite_Spaghetti_Crevettes">+</button>
+                </div>
+              </article>
+            </div>
+          </details>
+
+          <p id="food_search_empty" class="search-empty is-hidden">Aucun plat trouvé avec ce mot-clé.</p>
+        </section>
+
+        <div class="food-hidden-fields">
+          <fieldset>
+            <legend>Champs techniques plats</legend>
+            <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Poulet braise + alloco - 3500 FCFA"> Poulet braise + alloco - 3 500 FCFA</label>
+            <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Riz gras + viande - 2500 FCFA"> Riz gras + viande - 2 500 FCFA</label>
+            <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Poisson frit + attieke - 4000 FCFA"> Poisson frit + attieke - 4 000 FCFA</label>
+            <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Garba thon + attieke - 2000 FCFA"> Garba thon + attieke - 2 000 FCFA</label>
+            <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Foutou sauce graine + boeuf - 3000 FCFA"> Foutou sauce graine + boeuf - 3 000 FCFA</label>
+            <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Spaghetti crevettes - 3500 FCFA"> Spaghetti crevettes - 3 500 FCFA</label>
+            <label class="choice"><input type="checkbox" name="Plats_Choisis" value="Kedjenou de poulet + riz - 4500 FCFA"> Kedjenou de poulet + riz - 4 500 FCFA</label>
+          </fieldset>
+
+          <input id="r_qte_poulet" name="Quantite_Poulet_Braise_Alloco" type="number" min="0" value="0">
+          <input id="r_qte_poisson" name="Quantite_Poisson_Frit_Attieke" type="number" min="0" value="0">
+          <input id="r_qte_kedjenou" name="Quantite_Kedjenou_Poulet_Riz" type="number" min="0" value="0">
+          <input id="r_qte_riz" name="Quantite_Riz_Gras_Viande" type="number" min="0" value="0">
+          <input id="r_qte_garba" name="Quantite_Garba_Thon_Attieke" type="number" min="0" value="0">
+          <input id="r_qte_foutou" name="Quantite_Foutou_Sauce_Graine_Boeuf" type="number" min="0" value="0">
+          <input id="r_qte_spaghetti" name="Quantite_Spaghetti_Crevettes" type="number" min="0" value="0">
+        </div>
+
+        <div class="price-summary" id="r_price_summary">
+          <h3>Resume des prix</h3>
+          <p id="r_price_details">Aucun article selectionne</p>
+          <p class="price-total">Total: <strong id="r_total_price">0</strong> FCFA</p>
+        </div>
+
+        <fieldset>
+          <legend>Mode de règlement (obligatoire)</legend>
+          <label class="choice"><input type="radio" name="Mode_Reglement" value="En_ligne" required checked> Payer en ligne maintenant</label>
+          <label class="choice"><input type="radio" name="Mode_Reglement" value="A_la_reception"> Payer à la réception du colis (temps réel)</label>
+        </fieldset>
+
+        <div class="payment-online-fields is-hidden" data-payment-fields>
+          <fieldset>
+            <legend>Réseau de paiement en ligne</legend>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="MTN Money" required> MTN Money</label>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="Moov Money"> Moov Money</label>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="Wave"> Wave</label>
+            <label class="choice"><input type="radio" name="Paiement_Mode" value="Orange Money"> Orange Money</label>
+          </fieldset>
+
+          <label for="r_paiement_numero">Numero de paiement</label>
+          <input id="r_paiement_numero" name="Paiement_Numero" type="tel" required>
+
+          <label for="r_ref">Référence transaction (optionnel)</label>
+          <input id="r_ref" name="Paiement_Reference" type="text">
+
+          <label for="r_montant">Montant à payer (FCFA)</label>
+          <input id="r_montant" name="Montant_Total" type="number" min="0" step="100" required placeholder="Confirmez le montant affiché ci-dessus">
+        </div>
+
+        <label for="r_note">Note (optionnel)</label>
+        <textarea id="r_note" name="Note" rows="3" placeholder="Sans piment, boisson, etc."></textarea>
+
+        <input id="r_localisation" name="Localisation_Client" type="hidden">
+
+        <div class="actions">
+          <button type="button" class="btn-secondary" data-loc-target="r_localisation">Ajouter ma localisation</button>
+          <button type="submit" class="btn-primary">Envoyer la commande</button>
+        </div>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/2250500338062?text=Bonjour%20Agboville%20Services,%20je%20souhaite%20faire%20une%20plainte." target="_blank" rel="noopener noreferrer" aria-label="Assistance WhatsApp">WhatsApp</a>
+
+  <footer class="footer"><p>Besoin d'aide ? Assistance WhatsApp disponible.</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
